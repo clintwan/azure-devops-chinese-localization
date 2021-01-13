@@ -1,5 +1,6 @@
 function fire() {
-    const data = {
+    const commonData = {
+        'Project settings': '项目设置',
         'Overview': '概况',
         'Summary': '摘要',
         'Dashboards': '大盘',
@@ -11,37 +12,38 @@ function fire() {
         'Queries': '查询',
         'Repos': '代码库',
         'Test Plans': '测试计划',
+        'Recently updated': '最新',
+        'New Work Item': '新工作',
+        'Recycle Bin': '回收站',
+        'Feature': '功能',
+        'Task': '任务',
+        'User Story': '用户故事',
+        'User Stories': '用户故事',
+        'Features': '功能',
+        'Backlog': '待办',
+        'View as Backlog': '待办',
+        'Board': '看板',
+        'View as Board': '看板',
+        'Planning': '计划',
+        'Taskboard': '看板',
+        'Capacity': '产能',
+        'New Sprint': '新冲刺',
+        'New item': '新增',
     }
 
-    const elements = ['div', 'span'];
+    const elements = ['div', 'span', 'h3'];
 
-    const navigationSection = document.querySelector('.navigation-section');
-    if (navigationSection) {
-        for (const element of elements) {
-            navigationSection.querySelectorAll(element).forEach((el, idx) => {
-                for (const k in data) {
-                    if (el.innerHTML == k) {
-                        el.innerHTML = data[k];
-                    }
+    for (const element of elements) {
+        document.querySelectorAll(element).forEach((el, idx) => {
+            for (const k in commonData) {
+                if (el.innerHTML == k) {
+                    el.innerHTML = commonData[k];
                 }
-            });
-        }
-    }
-
-    const boltPortalHost = document.querySelector('.bolt-portal-host');
-    if (boltPortalHost) {
-        for (const element of elements) {
-            boltPortalHost.querySelectorAll(element).forEach((el, idx) => {
-                for (const k in data) {
-                    if (el.innerHTML == k) {
-                        el.innerHTML = data[k];
-                    }
-                }
-            });
-        }
+            }
+        });
     }
 }
 
 setInterval(() => {
     fire();
-}, 200);
+}, 500);
